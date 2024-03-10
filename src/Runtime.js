@@ -36,10 +36,7 @@ const Runtime = class Runtime {
   }
 
   #text(url) {
-    if (this.#config.virtuals[url]) {
-      return this.#config.virtuals[url];
-    }
-    return File.text(url);
+    return this.#config.virtuals[url] ?? File.text(url);
   }
 
   async #resolve(url) {
@@ -54,6 +51,17 @@ const Runtime = class Runtime {
           ? facade_loaded(await loader(await this.#text(url)))
           : next(url, context),
     });
+  }
+
+  resolve(specifier, context, next) {
+    return this.#config.virtuals[specifier]
+      ? {
+        format: "module",
+        importAttributes: {},
+        shortCircuit: true,
+        url: specifier,
+      }
+      : next(specifier, context);
   }
 
   async load(url, context, next) {

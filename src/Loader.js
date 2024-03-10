@@ -28,7 +28,6 @@ export default class {
     if (this.#started) {
       throw new Error("loader already started");
     }
-
     const data = { config: this.#config };
     register("./register.js", import.meta.url, { data });
 
