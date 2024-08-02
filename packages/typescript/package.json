@@ -1,0 +1,28 @@
+{
+  "name": "@esload/typescript",
+  "version": "0.1.0",
+  "description": "esload TypeScript module",
+  "bugs": "https://github.com/rcompat/esload/issues",
+  "license": "MIT",
+  "files": [
+    "/lib/**/*.js",
+    "/lib/**/*.d.ts",
+    "!/**/*.spec.*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rcompat/rcompat",
+    "directory": "packages/typescript"
+  },
+  "dependencies": {
+    "@esload/core": "workspace:^"
+  },
+  "devDependencies": {
+    "esbuild": "^0.23.0"
+  },
+  "peerDependencies": {
+    "esbuild": "0.23"
+  },
+  "type": "module",
+  "private": true
+}

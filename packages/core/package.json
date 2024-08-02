@@ -1,0 +1,35 @@
+{
+  "name": "@esload/core",
+  "version": "0.1.0",
+  "description": "esload core module",
+  "bugs": "https://github.com/rcompat/esload/issues",
+  "license": "MIT",
+  "files": [
+    "/lib/**/*.js",
+    "/lib/**/*.d.ts",
+    "!/**/*.spec.*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rcompat/rcompat",
+    "directory": "packages/core"
+  },
+  "type": "module",
+  "imports": {
+    "#*": {
+      "@esload/lt": "./src/private/*/index.ts",
+      "default": "./lib/private/*/index.js"
+    }
+  },
+  "exports": {
+    "./*": {
+      "@esload/lt": "./src/*/index.ts",
+      "default": "./lib/*/index.js"
+    }
+  },
+  "private": true,
+  "dependencies": {
+    "@rcompat/async": "^0.3.0",
+    "@rcompat/cli": "^0.5.0"
+  }
+}

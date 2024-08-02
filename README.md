@@ -1,11 +1,10 @@
-# dp
+# esload
 
-JavaScript loader
+JavaScript module loader
 
 ## Why?
 
 * Import a variety of configuration formats (YAML, TOML, JSON5)
-* Loosen Node's standard enforcement of import assertions for JSON
 * Import frontend framework formats for server-side templating (JSX, Vue, 
 Svelte, Solid, Handlebars, Marko)
 * Import transpiled languages (TypeScript, CoffeeScript)
@@ -13,10 +12,11 @@ Svelte, Solid, Handlebars, Marko)
 
 ## Install
 
-`npm install dp`
+`npm install esload`
 
-For the loaders, peer deps must be installed and you will be informed if
-they're missing. See [loaders](#loaders) for supported loaders.
+esload comes bundled with the dependency-free loaders for `.txt`, `.json` and
+`.wasm`. For additional loaders, consult the [loader overview][#loaders] on 
+which packages to install.
 
 ## Use 
 
@@ -24,7 +24,7 @@ they're missing. See [loaders](#loaders) for supported loaders.
 
 If you run from the terminal, you get both static and dynamic imports.
 
-`node --import=dp app.js`
+`node --import=esload app.js`
 
 ```js
 import config from "./config.json";
@@ -34,71 +34,93 @@ import config from "./config.json";
 
 ### Programmatically
 
-If used programmatically, imports coming after `dp()` must be dynamic
+If used programmatically, imports coming after `esload()` must be dynamic
 (`import()`).
 
 ```js
-import dp from "dp";
+import register from "esload/register";
 
-dp();
+register(/* config */);
 
 const config = (await import("./config.json")).default;
 ```
 
 ### Configure
 
-This currently applies only programmatically.
+If esload detects an `esload.config.js` file in the package root, it will load
+it automatically.
+
+### esload.config.js
+
+```js
+import yaml from "@esload/yaml";
+
+export default {
+  extensions: {
+    ".yaml": yaml,
+  },
+  virtuals: {
+    "/config.yaml": 'foo: "bar"',
+  },
+};
+```
 
 #### extensions
 
-Object property to remap a given extension to a loader. In the following
-example, the `yaml` loader will trigger on `.yml` files in addition to the 
-default `.yaml`.
+Object property to map a given extension to a loader. In the following
+example, the imported `yaml` loader will trigger on `.yml` and `.yaml` files.
 
 ```js
-import dp from "dp";
+import yaml from "@esload/yaml";
 
-dp({ extensions: { ".yml": "yaml" } });
-
-const config = (await import("./config.yml")).default;
+export default {
+  extensions: {
+    ".yml": yaml,
+    ".yaml": yaml,
+  },
+};
 ```
 
 #### virtuals
 
 Object property in the form of `{ [path]: code }` to load from memory instead
-of the filesystem. The loading occurs before any loaders are called.
+of the filesystem. Memory paths have precedence over filesystem paths.
 
 ```js
-import dp from "dp";
+import yaml from "@esload/yaml";
 
-dp({ virtuals: { "/config.json": '{ "foo": "bar" }' } });
-
-const config = (await import("/config.json")).default;
-
-// config.foo -> "bar"
+export default {
+  extensions: {
+    ".yaml": yaml,
+  },
+  virtuals: {
+    // even if `/config.yaml` exists, it won't be loaded from disk
+    "/config.yaml": 'foo: "bar"',
+  },
+};
 ```
 
 
 ## Loaders
 
-|Name        |Extension|Dependency                         |
-|------------|---------|-----------------------------------|
-|json        |.json    |none                               |
-|text        |.txt     |none                               |
-|wasm        |.wasm    |none                               |
-|csv         |.csv     |`csv-parse`                        |
-|json5       |.json5   |`json5`                            |
-|toml        |.toml    |`toml`                             |
-|xml         |.xml     |`xml2js`                           |
-|yaml        |.yaml    |`yaml`                             |
-|react       |.jsx     |`esbuild`                          |
-|vue         |.vue     |`vue`                              |
-|svelte      |.svelte  |`svelte`                           |
-|solid       |.solid   |`babel-present-solid` `@babel/core`|
-|handlebars  |.hbs     |`handlebars`                       |
-|marko       |.marko   |`marko`                            |
-|typescript  |.ts      |`esbuild`                          |
-|coffeescript|.coffee  |`coffeescript`                     |
+|Name        |Package            |Dependencies                       |
+|------------|-------------------|-----------------------------------|
+|text        |esload             |-                                  |
+|json        |esload             |-                                  |
+|wasm        |esload             |-                                  |
+|csv         |@esload/csv        |`csv-parse`                        |
+|json5       |@esload/json5      |`json5`                            |
+|toml        |@esload/toml       |`toml`                             |
+|xml         |@esload/xml        |`xml2js`                           |
+|yaml        |@esload/yaml       |`yaml`                             |
+|react       |@esload/react      |`esbuild`                          |
+|vue         |@esload/vue        |`vue`                              |
+|svelte      |@esload/svelte     |`svelte`                           |
+|solid       |@esload/solid      |`babel-present-solid` `@babel/core`|
+|handlebars  |@esload/handlebars |`handlebars`                       |
+|marko       |@esload/marko      |`marko`                            |
+|typescript  |@esload/typescript |`esbuild`                          |
+|coffeescript|@esload/coffescript|`coffeescript`                     |
 
 ## License
 
@@ -106,5 +128,5 @@ MIT
 
 ## Contributing
 
-By submitting code you confirm that you are its sole owner and agree to place
-it under the terms of MIT, see LICENSE.
+By contributing to esload, you agree that your contributions will be licensed
+under its MIT license.

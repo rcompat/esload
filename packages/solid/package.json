@@ -1,0 +1,30 @@
+{
+  "name": "@esload/solid",
+  "version": "0.1.0",
+  "description": "esload Solid module",
+  "bugs": "https://github.com/rcompat/esload/issues",
+  "license": "MIT",
+  "files": [
+    "/lib/**/*.js",
+    "/lib/**/*.d.ts",
+    "!/**/*.spec.*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rcompat/rcompat",
+    "directory": "packages/solid"
+  },
+  "dependencies": {
+    "@esload/core": "workspace:^"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.0",
+    "babel-preset-solid": "^1.8.15"
+  },
+  "peerDependencies": {
+    "@babel/core": "7",
+    "babel-preset-solid": "1"
+  },
+  "type": "module",
+  "private": true
+}

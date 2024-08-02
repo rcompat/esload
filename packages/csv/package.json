@@ -1,0 +1,28 @@
+{
+  "name": "@esload/csv",
+  "version": "0.1.0",
+  "description": "esload CSV module",
+  "bugs": "https://github.com/rcompat/esload/issues",
+  "license": "MIT",
+  "files": [
+    "/lib/**/*.js",
+    "/lib/**/*.d.ts",
+    "!/**/*.spec.*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rcompat/rcompat",
+    "directory": "packages/csv"
+  },
+  "dependencies": {
+    "@esload/core": "workspace:^"
+  },
+  "devDependencies": {
+    "csv-parse": "^5.5.6"
+  },
+  "peerDependencies": {
+    "csv-parse": "5"
+  },
+  "type": "module",
+  "private": true
+}

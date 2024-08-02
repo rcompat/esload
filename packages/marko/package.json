@@ -1,0 +1,30 @@
+{
+  "name": "@esload/marko",
+  "version": "0.1.0",
+  "description": "esload Marko module",
+  "bugs": "https://github.com/rcompat/esload/issues",
+  "license": "MIT",
+  "files": [
+    "/lib/**/*.js",
+    "/lib/**/*.d.ts",
+    "!/**/*.spec.*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rcompat/rcompat",
+    "directory": "packages/marko"
+  },
+  "dependencies": {
+    "@esload/core": "workspace:^"
+  },
+  "devDependencies": {
+    "@marko/compiler": "^5.37.4",
+    "@marko/translator-default": "^6.0.6"
+  },
+  "peerDependencies": {
+    "@marko/compiler": "5",
+    "@marko/translator-default": "6"
+  },
+  "type": "module",
+  "private": true
+}

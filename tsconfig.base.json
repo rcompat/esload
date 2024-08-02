@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "target": "esnext",
+    "lib": ["ESNext"],
+    "rootDir": "${configDir}/src",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "${configDir}/lib",
+    "strict": true,
+    "skipLibCheck": true,
+    "customConditions": [
+      "@esload/lt"
+    ]
+  },
+  "include": ["${configDir}/src"],
+  "exclude": ["node_modules", "${configDir}/lib"]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "@esload/toml",
+  "version": "0.1.0",
+  "description": "esload TOML module",
+  "bugs": "https://github.com/rcompat/esload/issues",
+  "license": "MIT",
+  "files": [
+    "/lib/**/*.js",
+    "/lib/**/*.d.ts",
+    "!/**/*.spec.*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rcompat/rcompat",
+    "directory": "packages/toml"
+  },
+  "dependencies": {
+    "@esload/core": "workspace:^"
+  },
+  "devDependencies": {
+    "smol-toml": "^1.1.4"
+  },
+  "peerDependencies": {
+    "smol-toml": "1"
+  },
+  "type": "module",
+  "private": true
+}

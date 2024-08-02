@@ -1,0 +1,28 @@
+{
+  "name": "@esload/svelte",
+  "version": "0.1.0",
+  "description": "esload Svelte module",
+  "bugs": "https://github.com/rcompat/esload/issues",
+  "license": "MIT",
+  "files": [
+    "/lib/**/*.js",
+    "/lib/**/*.d.ts",
+    "!/**/*.spec.*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rcompat/rcompat",
+    "directory": "packages/svelte"
+  },
+  "dependencies": {
+    "@esload/core": "workspace:^"
+  },
+  "devDependencies": {
+    "svelte": "^4.2.12"
+  },
+  "peerDependencies": {
+    "svelte": "4"
+  },
+  "type": "module",
+  "private": true
+}

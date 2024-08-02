@@ -1,0 +1,28 @@
+{
+  "name": "@esload/yaml",
+  "version": "0.1.0",
+  "description": "esload YAML module",
+  "bugs": "https://github.com/rcompat/esload/issues",
+  "license": "MIT",
+  "files": [
+    "/lib/**/*.js",
+    "/lib/**/*.d.ts",
+    "!/**/*.spec.*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rcompat/rcompat",
+    "directory": "packages/yaml"
+  },
+  "dependencies": {
+    "@esload/core": "workspace:^"
+  },
+  "devDependencies": {
+    "yaml": "^2.4.1"
+  },
+  "peerDependencies": {
+    "yaml": "2"
+  },
+  "type": "module",
+  "private": true
+}

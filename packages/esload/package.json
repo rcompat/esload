@@ -1,0 +1,36 @@
+{
+  "name": "esload",
+  "version": "0.1.0",
+  "description": "JavaScript module loader",
+  "bugs": "https://github.com/rcompat/esload/issues",
+  "license": "MIT",
+  "files": [
+    "/lib/**/*.js",
+    "/lib/**/*.d.ts",
+    "!/**/*.spec.*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rcompat/rcompat",
+    "directory": "packages/esload"
+  },
+  "dependencies": {
+    "@esload/core": "workspace:^"
+  },
+  "type": "module",
+  "imports": {
+    "#*": {
+      "@esload/lt": "./src/private/*/index.ts",
+      "default": "./lib/private/*/index.js"
+    },
+    "#loader/*": {
+      "@esload/lt": "./src/private/loader/*/index.ts",
+      "default": "./lib/private/loader/*/index.js"
+    }
+  },
+  "exports": {
+    ".": "./src/index.js",
+    "./init": "./src/init.js"
+  },
+  "private": true
+}

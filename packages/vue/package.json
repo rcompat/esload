@@ -1,0 +1,28 @@
+{
+  "name": "@esload/vue",
+  "version": "0.1.0",
+  "description": "esload Vue module",
+  "bugs": "https://github.com/rcompat/esload/issues",
+  "license": "MIT",
+  "files": [
+    "/lib/**/*.js",
+    "/lib/**/*.d.ts",
+    "!/**/*.spec.*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rcompat/rcompat",
+    "directory": "packages/vue"
+  },
+  "dependencies": {
+    "@esload/core": "workspace:^"
+  },
+  "devDependencies": {
+    "vue": "^3.4.21"
+  },
+  "peerDependencies": {
+    "vue": "3"
+  },
+  "type": "module",
+  "private": true
+}
