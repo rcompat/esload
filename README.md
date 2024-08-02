@@ -5,7 +5,7 @@ JavaScript module loader
 ## Why?
 
 * Import a variety of configuration formats (YAML, TOML, JSON5)
-* Import frontend framework formats for server-side templating (JSX, Vue, 
+* Import frontend framework formats for server-side templating (JSX, Vue,
 Svelte, Solid, Handlebars, Marko)
 * Import transpiled languages (TypeScript, CoffeeScript)
 * Other stuff (`.txt` files as string, `.wasm` modules)
@@ -15,10 +15,10 @@ Svelte, Solid, Handlebars, Marko)
 `npm install esload`
 
 esload comes bundled with the dependency-free loaders for `.txt`, `.json` and
-`.wasm`. For additional loaders, consult the [loader overview][#loaders] on 
+`.wasm`. For additional loaders, consult the [loader overview](#loaders) on
 which packages to install.
 
-## Use 
+## Use
 
 ### In the terminal
 
