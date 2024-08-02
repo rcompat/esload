@@ -1,7 +1,7 @@
 import bold from "@rcompat/cli/color/bold";
 import red from "@rcompat/cli/color/red";
 import yellow from "@rcompat/cli/color/yellow";
-import tryreturn from "rcompat/async/tryreturn";
+import tryreturn from "@rcompat/async/tryreturn";
 
 const MODULE_NOT_FOUND = "ERR_MODULE_NOT_FOUND";
 

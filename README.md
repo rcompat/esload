@@ -40,7 +40,7 @@ If used programmatically, imports coming after `esload()` must be dynamic
 ```js
 import register from "esload/register";
 
-register(/* config */);
+register();
 
 const config = (await import("./config.json")).default;
 ```
@@ -56,28 +56,22 @@ it automatically.
 import yaml from "@esload/yaml";
 
 export default {
-  extensions: {
-    ".yaml": yaml,
-  },
+  loaders: [yaml],
   virtuals: {
     "/config.yaml": 'foo: "bar"',
   },
 };
 ```
 
-#### extensions
+#### loaders
 
-Object property to map a given extension to a loader. In the following
-example, the imported `yaml` loader will trigger on `.yml` and `.yaml` files.
+Array property for additional loaders.
 
 ```js
 import yaml from "@esload/yaml";
 
 export default {
-  extensions: {
-    ".yml": yaml,
-    ".yaml": yaml,
-  },
+  loaders: [yaml],
 };
 ```
 
@@ -87,15 +81,10 @@ Object property in the form of `{ [path]: code }` to load from memory instead
 of the filesystem. Memory paths have precedence over filesystem paths.
 
 ```js
-import yaml from "@esload/yaml";
-
 export default {
-  extensions: {
-    ".yaml": yaml,
-  },
   virtuals: {
-    // even if `/config.yaml` exists, it won't be loaded from disk
-    "/config.yaml": 'foo: "bar"',
+    // even if `/config.json` exists, it won't be loaded from disk
+    "/config.json": '{ "foo": "bar" }',
   },
 };
 ```

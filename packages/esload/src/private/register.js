@@ -1,7 +1,7 @@
 import Runtime from "./Runtime.js";
 
-export const initialize = async ({ config } = {}) => {
-  globalThis.runtime = await Runtime.new(config);
+export const initialize = async () => {
+   globalThis.runtime = await Runtime.new();
 };
 
 export const resolve = (specifier, context, next) =>

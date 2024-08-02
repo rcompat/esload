@@ -1,14 +1,11 @@
+import loaded_config from "#config";
 import json from "#loader/json";
 import text from "#loader/text";
 import wasm from "#loader/wasm";
 import file from "@rcompat/fs/file";
 import override from "@rcompat/object/override";
 
-const loaders = {
-  txt: text,
-  json,
-  wasm,
-};
+const loaders = [text, json, wasm];
 
 const fallback = {
   loader: (url, context, next) => next(url, context),
@@ -85,15 +82,15 @@ const Runtime = class Runtime {
 };
 
 export default {
-  async new(config) {
-    const $config = override(config, {
+  async new() {
+    const config = override({
       once: false,
       virtuals: {},
-      extensions: {},
-    });
-    const runtime = new Runtime($config);
-    await Promise.all(Object.entries(loaders)
-      .map(([extension, loader]) => loader(extension).setup(runtime)));
+      loaders: [],
+    }, loaded_config);
+    const runtime = new Runtime(config);
+    await Promise.all(loaders.map(loader => loader.setup(runtime)));
+    await Promise.all(config.loaders.map(loader => loader.setup(runtime)));
 
     return runtime;
   },
