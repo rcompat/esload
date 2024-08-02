@@ -14,15 +14,25 @@
     "url": "https://github.com/rcompat/rcompat",
     "directory": "packages/xml"
   },
+  "scripts": {
+    "test": "npx debris"
+  },
   "dependencies": {
     "@esload/core": "workspace:^"
   },
   "devDependencies": {
+    "esload": "workspace:^",
     "xml2js": "^0.6.2"
   },
   "peerDependencies": {
     "xml2js": "0.6"
   },
   "type": "module",
+  "exports": {
+    ".": {
+      "@esload/lt": "./src/index.ts",
+      "default": "./src/index.js"
+    }
+  },
   "private": true
 }

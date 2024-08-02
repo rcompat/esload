@@ -14,17 +14,27 @@
     "url": "https://github.com/rcompat/rcompat",
     "directory": "packages/solid"
   },
+  "scripts": {
+    "test": "npx debris"
+  },
   "dependencies": {
     "@esload/core": "workspace:^"
   },
   "devDependencies": {
     "@babel/core": "^7.24.0",
-    "babel-preset-solid": "^1.8.15"
+    "babel-preset-solid": "^1.8.15",
+    "esload": "workspace:^"
   },
   "peerDependencies": {
     "@babel/core": "7",
     "babel-preset-solid": "1"
   },
   "type": "module",
+  "exports": {
+    ".": {
+      "@esload/lt": "./src/index.ts",
+      "default": "./src/index.js"
+    }
+  },
   "private": true
 }

@@ -1,6 +1,6 @@
-import test from "@esload/core/test";
+import test from "esload/test";
 
-export default test("marko", (assert, imported) => {
+export default test("test.marko", (assert, imported) => {
   const { default: { ___typeName, path, _ } } = imported;
   assert(___typeName).equals("");
   assert(path).equals("");

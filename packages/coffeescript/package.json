@@ -14,15 +14,25 @@
     "url": "https://github.com/rcompat/rcompat",
     "directory": "packages/coffeescript"
   },
+  "scripts": {
+    "test": "npx debris"
+  },
   "dependencies": {
     "@esload/core": "workspace:^"
   },
   "devDependencies": {
-    "coffeescript": "^2.7.0"
+    "coffeescript": "^2.7.0",
+    "esload": "workspace:^"
   },
   "peerDependencies": {
     "coffeescript": "2"
   },
   "type": "module",
+  "exports": {
+    ".": {
+      "@esload/lt": "./src/index.ts",
+      "default": "./src/index.js"
+    }
+  },
   "private": true
 }

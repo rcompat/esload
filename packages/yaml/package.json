@@ -14,10 +14,14 @@
     "url": "https://github.com/rcompat/rcompat",
     "directory": "packages/yaml"
   },
+  "scripts": {
+    "test": "npx debris"
+  },
   "dependencies": {
     "@esload/core": "workspace:^"
   },
   "devDependencies": {
+    "esload": "workspace:^",
     "yaml": "^2.4.1"
   },
   "peerDependencies": {

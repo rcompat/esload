@@ -14,15 +14,25 @@
     "url": "https://github.com/rcompat/rcompat",
     "directory": "packages/csv"
   },
+  "scripts": {
+    "test": "npx debris"
+  },
   "dependencies": {
     "@esload/core": "workspace:^"
   },
   "devDependencies": {
-    "csv-parse": "^5.5.6"
+    "csv-parse": "^5.5.6",
+    "esload": "workspace:^"
   },
   "peerDependencies": {
     "csv-parse": "5"
   },
   "type": "module",
+  "exports": {
+    ".": {
+      "@esload/lt": "./src/index.ts",
+      "default": "./src/index.js"
+    }
+  },
   "private": true
 }

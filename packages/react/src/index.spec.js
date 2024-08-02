@@ -1,5 +1,5 @@
-import test from "@esload/core/test";
+import test from "esload/test";
 
-export default test("react", ".jsx", (assert, { message }) => {
+export default test("test.jsx", (assert, { message }) => {
   assert(message.includes("Cannot find package 'react'")).true();
 });

@@ -14,6 +14,9 @@
     "url": "https://github.com/rcompat/rcompat",
     "directory": "packages/esload"
   },
+  "scripts": {
+    "test": "npx debris"
+  },
   "dependencies": {
     "@esload/core": "workspace:^",
     "@rcompat/fs": "^0.4.0",
@@ -34,7 +37,8 @@
   },
   "exports": {
     ".": "./src/index.js",
-    "./register": "./src/register.js"
+    "./register": "./src/register.js",
+    "./test": "./src/test.js"
   },
   "private": true
 }

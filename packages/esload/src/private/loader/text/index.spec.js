@@ -1,6 +1,6 @@
-import test from "@esload/core/test";
+import test from "esload/test";
 
-export default test("text", ".txt", (assert, imported) => {
+export default test("private/loader/text/test.txt", (assert, imported) => {
   const { default: string } = imported;
   assert(string).equals("foo bar\n");
 });

@@ -14,17 +14,29 @@
     "url": "https://github.com/rcompat/rcompat",
     "directory": "packages/marko"
   },
+  "scripts": {
+    "test": "npx debris"
+  },
   "dependencies": {
     "@esload/core": "workspace:^"
   },
   "devDependencies": {
     "@marko/compiler": "^5.37.4",
-    "@marko/translator-default": "^6.0.6"
+    "@marko/translator-default": "^6.0.6",
+    "esload": "workspace:^",
+    "marko": "^5.35.7"
   },
   "peerDependencies": {
     "@marko/compiler": "5",
-    "@marko/translator-default": "6"
+    "@marko/translator-default": "6",
+    "marko": "5"
   },
   "type": "module",
+  "exports": {
+    ".": {
+      "@esload/lt": "./src/index.ts",
+      "default": "./src/index.js"
+    }
+  },
   "private": true
 }

@@ -14,15 +14,25 @@
     "url": "https://github.com/rcompat/rcompat",
     "directory": "packages/typescript"
   },
+  "scripts": {
+    "test": "npx debris"
+  },
   "dependencies": {
     "@esload/core": "workspace:^"
   },
   "devDependencies": {
-    "esbuild": "^0.23.0"
+    "esbuild": "^0.23.0",
+    "esload": "workspace:^"
   },
   "peerDependencies": {
     "esbuild": "0.23"
   },
   "type": "module",
+  "exports": {
+    ".": {
+      "@esload/lt": "./src/index.ts",
+      "default": "./src/index.js"
+    }
+  },
   "private": true
 }

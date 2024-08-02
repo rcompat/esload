@@ -14,15 +14,25 @@
     "url": "https://github.com/rcompat/rcompat",
     "directory": "packages/vue"
   },
+  "scripts": {
+    "test": "npx debris"
+  },
   "dependencies": {
     "@esload/core": "workspace:^"
   },
   "devDependencies": {
+    "esload": "workspace:^",
     "vue": "^3.4.21"
   },
   "peerDependencies": {
     "vue": "3"
   },
   "type": "module",
+  "exports": {
+    ".": {
+      "@esload/lt": "./src/index.ts",
+      "default": "./src/index.js"
+    }
+  },
   "private": true
 }

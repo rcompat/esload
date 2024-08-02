@@ -70,13 +70,7 @@ const Runtime = class Runtime {
   }
 
   async load(url, context, next) {
-    if (this.#config.once && this.#used) {
-      return fallback.loader(url, context, next);
-    }
     const { loader } = this.#loaders.find(_ => _.filter.test(url)) ?? fallback;
-    if (loader !== fallback.loader) {
-      this.#used = true;
-    }
     return try_load(() => loader(url, context, next));
   }
 };
@@ -84,14 +78,12 @@ const Runtime = class Runtime {
 export default {
   async new() {
     const config = override({
-      once: false,
       virtuals: {},
       loaders: [],
     }, loaded_config);
     const runtime = new Runtime(config);
     await Promise.all(loaders.map(loader => loader.setup(runtime)));
     await Promise.all(config.loaders.map(loader => loader.setup(runtime)));
-
     return runtime;
   },
 };

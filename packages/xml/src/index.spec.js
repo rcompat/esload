@@ -1,6 +1,6 @@
-import test from "@esload/core/test";
+import test from "esload/test";
 
-export default test("xml", (assert, imported) => {
+export default test("test.xml", (assert, imported) => {
   const { default: { foo } } = imported;
   assert(foo.bar).equals([""]);
 });
