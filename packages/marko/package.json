@@ -5,8 +5,8 @@
   "bugs": "https://github.com/rcompat/esload/issues",
   "license": "MIT",
   "files": [
-    "/lib/**/*.js",
-    "/lib/**/*.d.ts",
+    "/src/**/*.js",
+    "/src/**/*.d.ts",
     "!/**/*.spec.*"
   ],
   "repository": {

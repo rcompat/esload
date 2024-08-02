@@ -1,4 +1,4 @@
-import config_filename from "#config";
+import config_filename from "#config-filename";
 import root from "@rcompat/package/root";
 
 const file = (await root()).join(config_filename);

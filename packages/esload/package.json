@@ -5,8 +5,8 @@
   "bugs": "https://github.com/rcompat/esload/issues",
   "license": "MIT",
   "files": [
-    "/lib/**/*.js",
-    "/lib/**/*.d.ts",
+    "/src/**/*.js",
+    "/src/**/*.d.ts",
     "!/**/*.spec.*"
   ],
   "repository": {
@@ -15,22 +15,26 @@
     "directory": "packages/esload"
   },
   "dependencies": {
-    "@esload/core": "workspace:^"
+    "@esload/core": "workspace:^",
+    "@rcompat/fs": "^0.4.0",
+    "@rcompat/invariant": "^0.5.0",
+    "@rcompat/object": "^0.5.0",
+    "@rcompat/package": "^0.3.0"
   },
   "type": "module",
   "imports": {
     "#*": {
-      "@esload/lt": "./src/private/*/index.ts",
-      "default": "./lib/private/*/index.js"
+      "@esload/lt": "./src/private/*.ts",
+      "default": "./src/private/*.js"
     },
     "#loader/*": {
       "@esload/lt": "./src/private/loader/*/index.ts",
-      "default": "./lib/private/loader/*/index.js"
+      "default": "./src/private/loader/*/index.js"
     }
   },
   "exports": {
     ".": "./src/index.js",
-    "./init": "./src/init.js"
+    "./register": "./src/register.js"
   },
   "private": true
 }

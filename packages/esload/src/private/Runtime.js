@@ -1,11 +1,14 @@
-import extensions from "#extensions";
 import json from "#loader/json";
 import text from "#loader/text";
 import wasm from "#loader/wasm";
 import file from "@rcompat/fs/file";
-import override from "rcompat/object/override";
+import override from "@rcompat/object/override";
 
-const loaders = { json, text, wasm };
+const loaders = {
+  txt: text,
+  json,
+  wasm,
+};
 
 const fallback = {
   loader: (url, context, next) => next(url, context),
@@ -44,16 +47,17 @@ const Runtime = class Runtime {
   }
 
   async #resolve(url) {
-    return this.#config.virtuals[url] || File.exists(url);
+    return this.#config.virtuals[url] || file(url).exists();
   }
 
   onload({ filter }, loader) {
     this.#loaders.push({
       filter,
-      loader: async (url, context, next) =>
-        await this.#resolve(url)
+      loader: async (url, context, next) => {
+        return await this.#resolve(url)
           ? facade_loaded(await loader(await this.#text(url)))
-          : next(url, context),
+          : next(url, context);
+      },
     });
   }
 
@@ -85,11 +89,11 @@ export default {
     const $config = override(config, {
       once: false,
       virtuals: {},
-      extensions,
+      extensions: {},
     });
     const runtime = new Runtime($config);
-    await Promise.all(Object.entries($config.extensions)
-      .map(([extension, loader]) => loaders[loader](extension).setup(runtime)));
+    await Promise.all(Object.entries(loaders)
+      .map(([extension, loader]) => loader(extension).setup(runtime)));
 
     return runtime;
   },

@@ -1,4 +1,4 @@
 import config from "#config";
-import init from "./init.js";
+import register from "./register.js";
 
-init(config);
+register(config);

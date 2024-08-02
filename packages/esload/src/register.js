@@ -13,7 +13,7 @@ export default config => {
     extensions: {},
   });
   const data = { config: c };
-  register("./register.js", import.meta.url, { data });
+  register("./private/register.js", import.meta.url, { data });
 
   loaded = true;
 
