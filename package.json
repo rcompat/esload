@@ -12,7 +12,7 @@
     "test": "pnpx debris .",
     "lint": "pnpx eslint .",
     "lint:fix": "pnpx eslint . --fix",
-    "upgrade": "pnpm  update -i -L"
+    "upgrade": "pnpm update -i -L"
   },
   "devDependencies": {
     "maximin": "^0.4.0"

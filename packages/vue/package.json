@@ -33,6 +33,5 @@
       "@esload/lt": "./src/index.ts",
       "default": "./src/index.js"
     }
-  },
-  "private": true
+  }
 }

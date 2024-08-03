@@ -39,6 +39,5 @@
     ".": "./src/index.js",
     "./register": "./src/register.js",
     "./test": "./src/test.js"
-  },
-  "private": true
+  }
 }

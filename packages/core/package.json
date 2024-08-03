@@ -27,7 +27,6 @@
       "default": "./src/*/index.js"
     }
   },
-  "private": true,
   "dependencies": {
     "@rcompat/async": "^0.3.0",
     "@rcompat/core": "^0.4.0",
