@@ -1,6 +1,6 @@
 {
   "name": "@esload/yaml",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "esload YAML module",
   "bugs": "https://github.com/rcompat/esload/issues",
   "license": "MIT",
