@@ -1,4 +1,4 @@
-import is from "@rcompat/invariant/is";
+import is from "@rcompat/assert/is";
 import { register } from "node:module";
 
 let loaded = false;

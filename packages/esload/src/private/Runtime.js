@@ -3,7 +3,7 @@ import json from "#loader/json";
 import text from "#loader/text";
 import wasm from "#loader/wasm";
 import file from "@rcompat/fs/file";
-import override from "@rcompat/object/override";
+import override from "@rcompat/record/override";
 
 const loaders = [text, json, wasm];
 

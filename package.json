@@ -1,22 +1,26 @@
 {
   "name": "@esload/monorepo",
-  "version": "0.1.0",
-  "description": "JavaScript loader",
-  "bugs": "https://github.com/rcompat/esload/issues",
+  "type": "module",
   "license": "MIT",
-  "files": [],
-  "repository": "https://github.com/rcompat/esload",
+  "private": true,
   "scripts": {
+    "build": "pnpm -r build",
+    "clean": "pnpm -r clean",
     "publish": "pnpm -r --access=public publish",
     "upgrade": "pnpm -r update -i -L",
-    "test": "pnpx debris .",
-    "lint": "pnpx eslint .",
-    "lint:fix": "pnpx eslint . --fix",
-    "upgrade": "pnpm update -i -L"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "pnpm -r test",
+    "sweep": "rm -rf node_modules pnpm-lock.yaml {app,package}s/*/node_modules",
+    "knip": "knip"
   },
   "devDependencies": {
-    "maximin": "^0.4.0"
-  },
-  "type": "module",
-  "private": true
+    "@rcompat/test": "^0.5.0",
+    "@rcompat/type": "^0.4.0",
+    "apekit": "^0.0.27",
+    "eslint": "^9.32.0",
+    "knip": "^5.62.0",
+    "proby": "^0.4.0",
+    "typescript": "^5.9.2"
+  }
 }

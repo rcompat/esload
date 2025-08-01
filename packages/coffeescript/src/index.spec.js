@@ -1,6 +1,6 @@
 import test from "esload/test";
 
-export default test("test.coffee", (assert, imported) => {
+export default test("test.coffee", import.meta.dirname, (assert, imported) => {
   const { foo } = imported;
-  assert(foo).typeof("function");
+  assert(typeof foo).equals("function");
 });

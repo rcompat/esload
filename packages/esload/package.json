@@ -19,19 +19,19 @@
   },
   "dependencies": {
     "@esload/core": "workspace:^",
+    "@rcompat/assert": "^0.2.0",
     "@rcompat/fs": "^0.4.0",
-    "@rcompat/invariant": "^0.5.0",
     "@rcompat/object": "^0.5.0",
     "@rcompat/package": "^0.5.0"
   },
   "type": "module",
   "imports": {
     "#*": {
-      "@esload/lt": "./src/private/*.ts",
+      "apekit": "./src/private/*.ts",
       "default": "./src/private/*.js"
     },
     "#loader/*": {
-      "@esload/lt": "./src/private/loader/*/index.ts",
+      "apekit": "./src/private/loader/*/index.ts",
       "default": "./src/private/loader/*/index.js"
     }
   },
